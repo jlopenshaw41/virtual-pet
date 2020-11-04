@@ -1,10 +1,15 @@
-const maxFitnessLevel = 10;
-const hungerIncrement = 5;
-const fitnessDecrement = 3;
-const fitnessIncrement = 4;
 const ageAtCreation = 0;
 const hungerAtCreation = 0;
 const fitnessAtCreation = 10;
+
+const minHungerLevel = 0;
+const hungerIncrement = 5;
+const hungerDecrement = 3;
+
+const maxFitnessLevel = 10;
+const fitnessDecrement = 3;
+const fitnessIncrement = 4;
+
 
 function Pet(name) {
     this.name = name;
@@ -25,6 +30,13 @@ Pet.prototype = {
             this.fitness += fitnessIncrement;
         } else {
             this.fitness = maxFitnessLevel;
+        };
+    },
+    feed: function () {
+        if (this.hunger >= hungerDecrement) {
+            this.hunger -= hungerDecrement;
+        } else {
+            this.hunger = minHungerLevel;
         };
     }
 }

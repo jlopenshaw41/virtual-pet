@@ -60,15 +60,33 @@ describe('walk', () => {
         pet = new Pet('Fido');
     });
     
-    
     it('increases fitness level by 4, to a maximum of 10', () => {
         pet.growUp();
         pet.growUp();
         pet.walk();
         expect(pet.fitness).toBe(8);
+        
         pet.walk();
         expect(pet.fitness).toBe(10);
     })
+});
+
+describe('feed', () => {
+
+    let pet;
+
+    beforeEach(() => {
+        pet = new Pet('Fido');
+    });
+
+    it('decreases hunger level by 3, to a minimum of 0', () => {
+        pet.growUp();
+        pet.feed();
+        expect(pet.hunger).toBe(2);
+
+        pet.feed();
+        expect(pet.hunger).toBe(0);
+    });
 });
 
     
