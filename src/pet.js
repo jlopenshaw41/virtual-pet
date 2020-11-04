@@ -21,10 +21,10 @@ Pet.prototype = {
         this.fitness -= fitnessDecrement;
     },
     walk: function () {
-        if (this.fitness >= maxFitnessLevel - fitnessIncrement + 1) {
-            this.fitness = maxFitnessLevel;
-        } else {
+        if ((this.fitness + fitnessIncrement) <= maxFitnessLevel) {
             this.fitness += fitnessIncrement;
+        } else {
+            this.fitness = maxFitnessLevel;
         };
     }
 }

@@ -28,21 +28,39 @@ describe('constructor', () => {
         expect(pet.fitness).toBe(10);
     });
 
-    it('increments age by 1', () => {
+});
+
+describe('growUp', () => {
+
+    let pet;
+    
+    beforeEach(() => {
+        pet = new Pet('Fido');
         pet.growUp();
+    });
+
+    it('increments age by 1', () => {
         expect(pet.age).toBe(1);
     });
 
     it('increases hunger by 5', () => {
-        pet.growUp();
         expect(pet.hunger).toBe(5);
     });
 
     it('decreases fitness by 3', () => {
-        pet.growUp();
         expect(pet.fitness).toBe(7);
     });
+});
 
+describe('walk', () => {
+    
+    let pet;
+    
+    beforeEach(() => {
+        pet = new Pet('Fido');
+    });
+    
+    
     it('increases fitness level by 4, to a maximum of 10', () => {
         pet.growUp();
         pet.growUp();
@@ -52,3 +70,5 @@ describe('constructor', () => {
         expect(pet.fitness).toBe(10);
     })
 });
+
+    
