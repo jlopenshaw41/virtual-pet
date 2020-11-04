@@ -12,7 +12,7 @@ describe('constructor', () => {
         const pet = new Pet('Fido');
         expect(pet.age).toBe(0);
     });
-    it('increments the age by 1', () => {
+    it('increments age by 1', () => {
         const pet = new Pet('Fido');
         pet.growUp();
         expect(pet.age).toBe(1);

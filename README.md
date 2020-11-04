@@ -1,51 +1,59 @@
-# TEMPLATE TO BE UPDATED
+# Virtual Pet
 
-# Project Name
-> Here goes your awesome project description!
+Your very own pet, made entirely of JavaScript! No need to walk it, or buy expensive pet food. It won't chew your slippers or scratch your sofa.
+
+A JavaScript project, completed as part of the Software Engineering FastTrack course at Manchester Codes.
 
 ## Table of contents
 * [General info](#general-info)
-* [Screenshots](#screenshots)
 * [Technologies](#technologies)
-* [Setup](#setup)
+* [Languages](#languages)
 * [Features](#features)
 * [Status](#status)
 * [Inspiration](#inspiration)
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+ The purpose of this project is to build upon the following skills recently learned as part of the Manchester Codes bootcamp course:
 
-## Screenshots
-![Example screenshot](./img/screenshot.png)
+ * Using Node and Node Package Manager (npm)
+ * Understanding the importance of README documents
+ * Using git and Github
+ * The importance of a `.gitignore` file
+ * Employing Test Driven Development (TDD) methodology
+ * Feature testing using the Node REPL
+ * Writing and executing unit tests using Jest
+ * Debugging using a stack trace
+ * Understanding Node modules and exporting using `require`
+ * JavaScript objects, prototypes, constructor functions, the `this` keyword
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Node and Node Package Manager
+* Jest
+* Git & GitHub
 
-## Setup
-Describe how to install / setup your local environement / add link to demo version.
-
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
+## Languages
+* JavaScript
 
 ## Features
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+List of current features: 
+* Pets can be given names
+* Pets can grow older
 
-To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+To-do list for future development:
+* The hunger and fitness levels of pets can be tracked
+* Pets get hungry and need to be fed
+* Pets get more hungry as they get older
+* Pets get less fit as they get older
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is: _in progress_
 
 ## Inspiration
-Add here credits. Project inspired by..., based on...
+Project created as part of Manchester Codes Software Engineering FastTrack course, Object Oriented Programming module.
+
+An extra thank you to [Rita Łyczywek](https://www.flynerd.pl/) for this excellent README template
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by [@jlopenshaw](https://twitter.com/Jlopenshaw) - feel free to contact me about the project
+
