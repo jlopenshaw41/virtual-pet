@@ -26,6 +26,8 @@ A JavaScript project, completed as part of the Software Engineering FastTrack co
  * Debugging using a stack trace
  * Understanding Node modules and exporting using `require`
  * JavaScript objects, prototypes, constructor functions, the `this` keyword
+ * Refactoring
+ * Understanding magic numbers
 
 ## Technologies
 * Node and Node Package Manager

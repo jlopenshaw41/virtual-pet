@@ -42,4 +42,13 @@ describe('constructor', () => {
         pet.growUp();
         expect(pet.fitness).toBe(7);
     });
+
+    it('increases fitness level by 4, to a maximum of 10', () => {
+        pet.growUp();
+        pet.growUp();
+        pet.walk();
+        expect(pet.fitness).toBe(8);
+        pet.walk();
+        expect(pet.fitness).toBe(10);
+    })
 });
