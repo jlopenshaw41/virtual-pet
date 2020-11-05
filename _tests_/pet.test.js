@@ -89,4 +89,10 @@ describe('feed', () => {
     });
 });
 
+describe('checkUp', () => {
+    it('returns "I need a walk" if fitness is 3 or less', () => {
+        expect().toBe();
+    });
+});
+
     
