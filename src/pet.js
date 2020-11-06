@@ -5,10 +5,12 @@ const fitnessAtCreation = 10;
 const minHungerLevel = 0;
 const hungerIncrement = 5;
 const hungerDecrement = 3;
+const isHungryThreshold = 5;
 
 const maxFitnessLevel = 10;
 const fitnessDecrement = 3;
 const fitnessIncrement = 4;
+const needsExerciseThreshold = 3;
 
 
 function Pet(name) {
@@ -40,8 +42,14 @@ Pet.prototype = {
         };
     },
     checkUp: function () {
-        if (this.fitness <= 3) {
+        if (this.fitness <= needsExerciseThreshold && this.hunger >= isHungryThreshold) {
+            return 'I am hungry AND I need a walk';
+        } else if (this.fitness <= needsExerciseThreshold) {
             return 'I need a walk';
+        } else if (this.hunger >= isHungryThreshold) {
+            return 'I am hungry';
+        } else {
+            return 'I feel great!';
         }
     }
 }

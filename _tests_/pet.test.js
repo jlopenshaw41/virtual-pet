@@ -97,14 +97,33 @@ describe('checkUp', () => {
         pet = new Pet('Fido');
     });
 
-    it('returns "I need a walk" if fitness is 3 or less', () => {
+    it('returns "I need a walk" if fitness level is 3 or less', () => {
 
-        pet.growUp();
-        pet.growUp();
-        pet.growUp();
+        pet.fitness = 2;
 
         expect(pet.checkUp()).toBe('I need a walk');
     });
+
+    it('returns "I am hungry" if hunger level is 5 or more', () => {
+
+        pet.growUp();
+
+        expect(pet.checkUp()).toBe('I am hungry');
+    });
+
+    it('returns "I am hungry AND I need a walk" if fitness level is 3 or less AND hunger level is 5 or more', () => {
+        
+        pet.growUp();
+        pet.growUp();
+        pet.growUp();
+        
+        expect(pet.checkUp()).toBe('I am hungry AND I need a walk');
+    });
+
+    it('returns "I feel great!" if fitness level is 4 or more AND hunger level is 4 or less', () => {
+        
+        expect(pet.checkUp()).toBe('I feel great!');
+    })
 });
 
     
