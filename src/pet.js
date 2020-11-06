@@ -51,6 +51,9 @@ Pet.prototype = {
         } else {
             return 'I feel great!';
         }
+    },
+    get isAlive () {
+        return this.fitness > 0 && this.hunger < 10 && this.age < 30;
     }
 }
 

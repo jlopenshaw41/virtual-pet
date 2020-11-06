@@ -126,4 +126,28 @@ describe('checkUp', () => {
     })
 });
 
+describe('isAlive', () => {
+
+    let pet;
+
+    beforeEach(() => {
+        pet = new Pet('Fido');
+    });
+
+    it('returns true if fitness is greater than 0 AND hunger is less than 10 AND age is less than 30', () => {
+
+        expect(pet.isAlive).toBe(true);
+    });
+
+    it('returns false if fitness is 0 or less OR hunger is 10 or more OR age is 30 or more', () => {
+
+        pet.fitness = 0;
+        pet.hunger = 11;
+        pet.age = 45;
+
+        expect(pet.isAlive).toBe(false);
+});
+    
+});
+
     
