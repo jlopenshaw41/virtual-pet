@@ -13,35 +13,45 @@ const fitnessIncrement = 4;
 const needsExerciseThreshold = 3;
 
 
-function Pet(name) {
-    this.name = name;
-    this.age = ageAtCreation;
-    this.hunger = hungerAtCreation;
-    this.fitness = fitnessAtCreation;
-}
+class Pet {
+
+    constructor(name) {
+        this.name = name;
+        this.age = ageAtCreation;
+        this.hunger = hungerAtCreation;
+        this.fitness = fitnessAtCreation;
+    }
+
+    get isAlive() {
+        return this.fitness > 0 && this.hunger < 10 && this.age < 30;
+    }
  
-Pet.prototype = {
-    constructor: Pet,
-    growUp: function () {
+    growUp() {
         this.age++;
         this.hunger += hungerIncrement;
         this.fitness -= fitnessDecrement;
-    },
-    walk: function () {
+    }
+    
+    walk() {
         if ((this.fitness + fitnessIncrement) <= maxFitnessLevel) {
             this.fitness += fitnessIncrement;
         } else {
             this.fitness = maxFitnessLevel;
         };
-    },
-    feed: function () {
+    }
+
+    feed() {
+        if (!this.isAlive) {
+            throw new Error('Your pet is no longer alive :(')
+        }
         if (this.hunger >= hungerDecrement) {
             this.hunger -= hungerDecrement;
         } else {
             this.hunger = minHungerLevel;
         };
-    },
-    checkUp: function () {
+    }
+    
+    checkUp() {
         if (this.fitness <= needsExerciseThreshold && this.hunger >= isHungryThreshold) {
             return 'I am hungry AND I need a walk';
         } else if (this.fitness <= needsExerciseThreshold) {
@@ -51,10 +61,8 @@ Pet.prototype = {
         } else {
             return 'I feel great!';
         }
-    },
-    get isAlive () {
-        return this.fitness > 0 && this.hunger < 10 && this.age < 30;
     }
-}
+};
+
 
 module.exports = Pet;

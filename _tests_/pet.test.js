@@ -87,6 +87,12 @@ describe('feed', () => {
         pet.feed();
         expect(pet.hunger).toBe(0);
     });
+
+    it('throws an error if the pet is not alive', () => {
+
+        pet.age = 30;
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
+    });
 });
 
 describe('checkUp', () => {
