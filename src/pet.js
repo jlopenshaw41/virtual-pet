@@ -33,6 +33,9 @@ class Pet {
     }
     
     walk() {
+        if (!this.isAlive) {
+            throw new Error('Sorry, your pet is no longer alive :(');
+        }
         if ((this.fitness + fitnessIncrement) <= maxFitnessLevel) {
             this.fitness += fitnessIncrement;
         } else {
@@ -50,7 +53,7 @@ class Pet {
             this.hunger = minHungerLevel;
         };
     }
-    
+
     checkUp() {
         if (this.fitness <= needsExerciseThreshold && this.hunger >= isHungryThreshold) {
             return 'I am hungry AND I need a walk';

@@ -63,11 +63,19 @@ describe('walk', () => {
     it('increases fitness level by 4, to a maximum of 10', () => {
         pet.growUp();
         pet.growUp();
+        pet.hunger = 0;
         pet.walk();
+        
         expect(pet.fitness).toBe(8);
         
         pet.walk();
+       
         expect(pet.fitness).toBe(10);
+    });
+
+    it('throws an error if the pet is not alive', () => {
+        pet.age = 30;
+        expect(() => pet.walk()).toThrow('Sorry, your pet is no longer alive :(');
     })
 });
 
