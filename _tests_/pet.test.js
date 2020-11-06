@@ -90,8 +90,20 @@ describe('feed', () => {
 });
 
 describe('checkUp', () => {
+
+    let pet;
+
+    beforeEach(() => {
+        pet = new Pet('Fido');
+    });
+
     it('returns "I need a walk" if fitness is 3 or less', () => {
-        expect().toBe();
+
+        pet.growUp();
+        pet.growUp();
+        pet.growUp();
+
+        expect(pet.checkUp()).toBe('I need a walk');
     });
 });
 

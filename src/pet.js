@@ -38,6 +38,11 @@ Pet.prototype = {
         } else {
             this.hunger = minHungerLevel;
         };
+    },
+    checkUp: function () {
+        if (this.fitness <= 3) {
+            return 'I need a walk';
+        }
     }
 }
 
