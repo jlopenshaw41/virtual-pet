@@ -51,8 +51,9 @@ List of current features:
 * Pets get hungry and need to be fed
 * Pets get more hungry as they get older
 * Pets get less fit as they get older
-* Check status of pet
-* Add mortality
+* User can check status of pet
+* Pet dies if it gets too old, too hungry or too unfit
+* Pet can adopt children
 
 To-do list for future development:
 

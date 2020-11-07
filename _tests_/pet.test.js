@@ -28,6 +28,10 @@ describe('constructor', () => {
         expect(pet.fitness).toBe(10);
     });
 
+    it('sets the value of the children property to an empty array', () => {
+        expect(pet.children).toEqual([]);
+    })
+
 });
 
 describe('growUp', () => {
@@ -172,8 +176,22 @@ describe('isAlive', () => {
         pet.age = 45;
 
         expect(pet.isAlive).toBe(false);
+    });
 });
-    
-});
+
+describe('adoptChild', () => {
+    let pet;
+    let child;
+
+    beforeEach(() => {
+        pet = new Pet('Fido');
+        child = new Pet('Fido Jnr');
+    });
+
+    it('takes another object and adds it to the children property', () => {
+        pet.adoptChild(child);
+        expect(pet.children[0]).toEqual(child);
+    })
+})
 
     
