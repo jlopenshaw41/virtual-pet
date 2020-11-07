@@ -12,6 +12,8 @@ const fitnessDecrement = 3;
 const fitnessIncrement = 4;
 const needsExerciseThreshold = 3;
 
+const petDeadErrorMessage = 'Your pet is no longer alive :(';
+
 
 class Pet {
 
@@ -28,9 +30,9 @@ class Pet {
  
     growUp() {
         if (!this.isAlive) {
-            throw new Error('Your pet is no longer alive :(');
+            throw new Error(petDeadErrorMessage);
         }
-        
+
         this.age++;
         this.hunger += hungerIncrement;
         this.fitness -= fitnessDecrement;
@@ -38,7 +40,7 @@ class Pet {
     
     walk() {
         if (!this.isAlive) {
-            throw new Error('Your pet is no longer alive :(');
+            throw new Error(petDeadErrorMessage);
         }
         if ((this.fitness + fitnessIncrement) <= maxFitnessLevel) {
             this.fitness += fitnessIncrement;
@@ -49,7 +51,7 @@ class Pet {
 
     feed() {
         if (!this.isAlive) {
-            throw new Error('Your pet is no longer alive :(')
+            throw new Error(petDeadErrorMessage)
         }
         if (this.hunger >= hungerDecrement) {
             this.hunger -= hungerDecrement;
@@ -59,7 +61,9 @@ class Pet {
     }
 
     checkUp() {
-        if (this.fitness <= needsExerciseThreshold && this.hunger >= isHungryThreshold) {
+        if (!this.isAlive) {
+            return petDeadErrorMessage;
+        } else if(this.fitness <= needsExerciseThreshold && this.hunger >= isHungryThreshold) {
             return 'I am hungry AND I need a walk';
         } else if (this.fitness <= needsExerciseThreshold) {
             return 'I need a walk';

@@ -143,6 +143,12 @@ describe('checkUp', () => {
     it('returns "I feel great!" if fitness level is 4 or more AND hunger level is 4 or less', () => {
         
         expect(pet.checkUp()).toBe('I feel great!');
+    });
+
+    it('returns "Your pet is no longer live :(" if pet is not alive', () => {
+        pet.age = 30;
+
+        expect(pet.checkUp()).toBe('Your pet is no longer alive :(');
     })
 });
 
