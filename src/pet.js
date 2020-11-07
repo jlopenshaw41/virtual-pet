@@ -27,6 +27,10 @@ class Pet {
     }
  
     growUp() {
+        if (!this.isAlive) {
+            throw new Error('Your pet is no longer alive :(');
+        }
+        
         this.age++;
         this.hunger += hungerIncrement;
         this.fitness -= fitnessDecrement;
@@ -34,7 +38,7 @@ class Pet {
     
     walk() {
         if (!this.isAlive) {
-            throw new Error('Sorry, your pet is no longer alive :(');
+            throw new Error('Your pet is no longer alive :(');
         }
         if ((this.fitness + fitnessIncrement) <= maxFitnessLevel) {
             this.fitness += fitnessIncrement;

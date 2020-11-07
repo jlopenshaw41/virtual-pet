@@ -50,6 +50,11 @@ describe('growUp', () => {
     it('decreases fitness by 3', () => {
         expect(pet.fitness).toBe(7);
     });
+
+    it('throws an error if the pet is not alive', () => {
+        pet.age = 30;
+        expect(() => pet.growUp()).toThrow('Your pet is no longer alive :(');
+    })
 });
 
 describe('walk', () => {
@@ -75,7 +80,7 @@ describe('walk', () => {
 
     it('throws an error if the pet is not alive', () => {
         pet.age = 30;
-        expect(() => pet.walk()).toThrow('Sorry, your pet is no longer alive :(');
+        expect(() => pet.walk()).toThrow('Your pet is no longer alive :(');
     })
 });
 
@@ -129,6 +134,7 @@ describe('checkUp', () => {
         
         pet.growUp();
         pet.growUp();
+        pet.hunger = 0;
         pet.growUp();
         
         expect(pet.checkUp()).toBe('I am hungry AND I need a walk');
