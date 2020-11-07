@@ -51,15 +51,16 @@ List of current features:
 * Pets get hungry and need to be fed
 * Pets get more hungry as they get older
 * Pets get less fit as they get older
-
-To-do list for future development:
-
 * Check status of pet
 * Add mortality
 
+To-do list for future development:
+
+* PROJECT COMPLETE
+
 ## Status
 
-Project is: _in progress_
+Project is: _COMPLETE_
 
 ## Inspiration
 
