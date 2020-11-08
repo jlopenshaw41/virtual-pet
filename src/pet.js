@@ -12,7 +12,7 @@ const fitnessDecrement = 3;
 const fitnessIncrement = 4;
 const needsExerciseThreshold = 3;
 
-const petDeadErrorMessage = 'Your pet is no longer alive :(';
+const petDeadErrorMessage = 'Uh, oh! Your pet is no longer alive :(';
 
 
 class Pet {
