@@ -1,27 +1,27 @@
-const ageAtCreation = 0;
-const hungerAtCreation = 0;
-const fitnessAtCreation = 10;
+const AGE_AT_CREATION = 0;
+const HUNGER_AT_CREATION = 0;
+const FITNESS_AT_CREATION = 10;
 
-const minHungerLevel = 0;
-const hungerIncrement = 5;
-const hungerDecrement = 3;
-const isHungryThreshold = 5;
+const MIN_HUNGER_LEVEL = 0;
+const HUNGER_INCREMENT = 5;
+const HUNGER_DECREMENT = 3;
+const IS_HUNGRY_THRESHOLD = 5;
 
-const maxFitnessLevel = 10;
-const fitnessDecrement = 3;
-const fitnessIncrement = 4;
-const needsExerciseThreshold = 3;
+const MAX_FITNESS_LEVEL = 10;
+const FITNESS_DECREMENT = 3;
+const FITNESS_INCREMENT = 4;
+const NEEDS_EXERCISE_THRESHOLD = 3;
 
-const petDeadErrorMessage = 'Uh, oh! Your pet is no longer alive :(';
+const PET_DEAD_ERROR_MESSAGE = 'Uh, oh! Your pet is no longer alive :(';
 
 
 class Pet {
 
     constructor(name) {
         this.name = name;
-        this.age = ageAtCreation;
-        this.hunger = hungerAtCreation;
-        this.fitness = fitnessAtCreation;
+        this.age = AGE_AT_CREATION;
+        this.hunger = HUNGER_AT_CREATION;
+        this.fitness = FITNESS_AT_CREATION;
         this.children = [];
     }
 
@@ -31,44 +31,44 @@ class Pet {
  
     growUp() {
         if (!this.isAlive) {
-            throw new Error(petDeadErrorMessage);
+            throw new Error(PET_DEAD_ERROR_MESSAGE);
         }
 
         this.age++;
-        this.hunger += hungerIncrement;
-        this.fitness -= fitnessDecrement;
+        this.hunger += HUNGER_INCREMENT;
+        this.fitness -= FITNESS_DECREMENT;
     }
     
     walk() {
         if (!this.isAlive) {
-            throw new Error(petDeadErrorMessage);
+            throw new Error(PET_DEAD_ERROR_MESSAGE);
         }
-        if ((this.fitness + fitnessIncrement) <= maxFitnessLevel) {
-            this.fitness += fitnessIncrement;
+        if ((this.fitness + FITNESS_INCREMENT) <= MAX_FITNESS_LEVEL) {
+            this.fitness += FITNESS_INCREMENT;
         } else {
-            this.fitness = maxFitnessLevel;
+            this.fitness = MAX_FITNESS_LEVEL;
         };
     }
 
     feed() {
         if (!this.isAlive) {
-            throw new Error(petDeadErrorMessage)
+            throw new Error(PET_DEAD_ERROR_MESSAGE)
         }
-        if (this.hunger >= hungerDecrement) {
-            this.hunger -= hungerDecrement;
+        if (this.hunger >= HUNGER_DECREMENT) {
+            this.hunger -= HUNGER_DECREMENT;
         } else {
-            this.hunger = minHungerLevel;
+            this.hunger = MIN_HUNGER_LEVEL;
         };
     }
 
     checkUp() {
         if (!this.isAlive) {
-            return petDeadErrorMessage;
-        } else if(this.fitness <= needsExerciseThreshold && this.hunger >= isHungryThreshold) {
+            return PET_DEAD_ERROR_MESSAGE;
+        } else if(this.fitness <= NEEDS_EXERCISE_THRESHOLD && this.hunger >= IS_HUNGRY_THRESHOLD) {
             return 'I am hungry AND I need a walk';
-        } else if (this.fitness <= needsExerciseThreshold) {
+        } else if (this.fitness <= NEEDS_EXERCISE_THRESHOLD) {
             return 'I need a walk';
-        } else if (this.hunger >= isHungryThreshold) {
+        } else if (this.hunger >= IS_HUNGRY_THRESHOLD) {
             return 'I am hungry';
         } else {
             return 'I feel great!';
