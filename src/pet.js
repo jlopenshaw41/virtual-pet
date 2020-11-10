@@ -76,6 +76,10 @@ class Pet {
     }
 
     adoptChild(childObject) {
+        if (!this.isAlive) {
+            throw new Error(PET_DEAD_ERROR_MESSAGE)
+        }
+        
         this.children.push(childObject);
     }
 };

@@ -169,7 +169,7 @@ describe('isAlive', () => {
         expect(pet.isAlive).toBe(true);
     });
 
-    it('returns false if fitness is 0 or less OR hunger is 10 or more OR age is 30 or more', () => {
+    it('returns false if fitness is 0 or less, hunger is 10 or more and age is 30 or more', () => {
 
         pet.fitness = 0;
         pet.hunger = 11;
@@ -177,6 +177,30 @@ describe('isAlive', () => {
 
         expect(pet.isAlive).toBe(false);
     });
+
+    it('returns false if fitness is 0 or less', () => {
+        pet.fitness = 0;
+        pet.hunger = 5;
+        pet.age = 15;
+
+        expect(pet.isAlive).toBe(false);
+    })
+
+    it('returns false if hunger is 10 or more', () => {
+        pet.fitness = 5;
+        pet.hunger = 11;
+        pet.age = 20;
+
+        expect(pet.isAlive).toBe(false);
+    })
+
+    it('returns false if age is 30 or more', () => {
+        pet.fitness = 5;
+        pet.hunger = 5;
+        pet.age = 45;
+
+        expect(pet.isAlive).toBe(false);
+    })
 });
 
 describe('adoptChild', () => {
@@ -189,8 +213,14 @@ describe('adoptChild', () => {
     });
 
     it('takes another object and adds it to the children property', () => {
+
         pet.adoptChild(child);
         expect(pet.children[0]).toEqual(child);
+    })
+
+    it('returns "Your pet is no longer live :(" if pet is not alive', () => {
+        pet.age = 30;
+        expect(() => pet.adoptChild(child)).toThrow('Uh, oh! Your pet is no longer alive :(');
     })
 })
 
